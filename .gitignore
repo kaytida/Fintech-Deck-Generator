@@ -6,8 +6,10 @@ __pycache__/
 venv/
 env/
 
-# Environment
+# Environment / secrets (NEVER commit real keys)
 .env
+.streamlit/secrets.toml
+secrets.toml
 
 # Generated artifacts
 *.pptx

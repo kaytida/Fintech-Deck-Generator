@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 import streamlit as st
 
 from ui.dashboard import render_dashboard
@@ -15,6 +17,21 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed",
 )
+
+
+def _bridge_secrets_to_env() -> None:
+    """Expose Streamlit secrets (Cloud dashboard or local secrets.toml) as env vars
+    so backend services can read the LLM token without importing Streamlit."""
+    try:
+        for key, value in st.secrets.items():
+            if isinstance(value, str):
+                os.environ.setdefault(key, value)
+    except Exception:
+        # No secrets file locally — fine; the app falls back to the template narrative.
+        pass
+
+
+_bridge_secrets_to_env()
 
 inject_global_css()
 
