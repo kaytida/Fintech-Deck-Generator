@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -51,6 +52,30 @@ def load_records(paths: list[Path] | None = None) -> list[Record]:
 class DataStore:
     def __init__(self, records: list[Record]) -> None:
         self._records = records
+
+    def to_sqlite(self) -> sqlite3.Connection:
+        """Build a fresh in-memory SQLite DB with a single `finance` table.
+
+        Used by the LLM agent so it can write arbitrary read-only SQL. The DB is
+        ephemeral (rebuilt per call) so queries can never affect real data.
+        """
+        conn = sqlite3.connect(":memory:")
+        conn.execute(
+            "CREATE TABLE finance ("
+            "quarter TEXT, department TEXT, category TEXT, "
+            "budget REAL, actual REAL, variance REAL, variance_pct REAL)"
+        )
+        conn.executemany(
+            "INSERT INTO finance "
+            "(quarter, department, category, budget, actual, variance, variance_pct) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [
+                (r.quarter, r.department, r.category, r.budget, r.actual, r.variance, r.variance_pct)
+                for r in self._records
+            ],
+        )
+        conn.commit()
+        return conn
 
     def quarters(self) -> list[str]:
         return sorted({r.quarter for r in self._records})
