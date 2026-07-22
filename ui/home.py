@@ -26,6 +26,26 @@ def render_home() -> None:
 
     st.markdown(
         """
+<div class="stat-strip">
+  <div class="stat-card">
+    <div class="stat-value">~15 sec</div>
+    <div class="stat-label">From plain-English prompt to a finished deck</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">10–15 hrs</div>
+    <div class="stat-label">Manual deck-building saved per month</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">100%</div>
+    <div class="stat-label">Fully editable, data-driven PowerPoint</div>
+  </div>
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
 <div class="site-section">
   <h2>Introduction</h2>
   <p>
