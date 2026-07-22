@@ -1,6 +1,6 @@
-"""Demo — FastAPI-style console → pipeline → result, wired to backend services.
+"""Demo — console → pipeline → result, wired to the backend services.
 
-Flow mirrors the FastAPI frontend:
+Flow:
   prompt/chip → animated agent pipeline → KPI cards + department table
   + slide outline → downloadable .pptx (built by services.pptx_builder.build_pptx).
 """
@@ -13,7 +13,7 @@ from pathlib import Path
 
 import streamlit as st
 
-# Make the FastAPI backend services importable.
+# Make the backend services package importable.
 ROOT = Path(__file__).resolve().parents[1]
 BACKEND = ROOT / "backend"
 if str(BACKEND) not in sys.path:
@@ -107,7 +107,7 @@ def _run_agent(prompt: str):
         "totals": store.quarter_totals(parsed.quarter),
         "detail": store.category_detail(parsed.quarter, parsed.category),
     }
-    pptx_bytes = build_pptx(narrative, store, parsed.quarter)
+    pptx_bytes = build_pptx(narrative)
     filename = f"deckgen-{parsed.quarter.lower()}-{parsed.category.lower().replace(' ', '-')}.pptx"
     return result, pptx_bytes, filename
 
