@@ -1,22 +1,38 @@
 quarter,department,category,budget_usd,actual_usd
-Q2,Streaming Engineering,Software Infrastructure,4400000,5120000
-Q2,Streaming Engineering,Cloud Compute,6400000,6890000
-Q2,Streaming Engineering,Headcount,9100000,9050000
-Q2,Streaming Engineering,Licenses & Subscriptions,1900000,1980000
-Q2,Content Delivery,Software Infrastructure,2200000,2480000
-Q2,Content Delivery,Cloud Compute,10200000,11400000
-Q2,Content Delivery,Hardware,1450000,1620000
-Q2,Studio Operations,Professional Services,3300000,3580000
-Q2,Studio Operations,Headcount,12600000,12450000
-Q2,Studio Operations,Travel,700000,890000
-Q2,DTC Growth,Marketing,4700000,5210000
-Q2,DTC Growth,Software Infrastructure,1050000,1180000
-Q2,DTC Growth,Cloud Compute,1250000,1410000
-Q2,Ad Sales Tech,Software Infrastructure,1550000,1490000
-Q2,Ad Sales Tech,Headcount,3300000,3280000
-Q2,Ad Sales Tech,Licenses & Subscriptions,920000,905000
-Q2,Corporate Finance GCC,Software Infrastructure,780000,765000
-Q2,Corporate Finance GCC,Training,430000,445000
-Q2,Corporate Finance GCC,Facilities,1120000,1110000
-Q2,Global Shared Services,Headcount,5700000,5680000
-Q2,Global Shared Services,Professional Services,1000000,1040000
+Q2,Engineering,Software Infrastructure,430000,612000
+Q2,Engineering,Cloud Compute,390000,468000
+Q2,Engineering,Headcount,1280000,1295000
+Q2,Engineering,Hardware,100000,118000
+Q2,Engineering,Licenses & Subscriptions,62000,71000
+Q2,QA,Software Infrastructure,95000,138000
+Q2,QA,Headcount,490000,486000
+Q2,QA,Licenses & Subscriptions,42000,49000
+Q2,QA,Training,26000,24000
+Q2,Data & AI,Cloud Compute,275000,351000
+Q2,Data & AI,Software Infrastructure,160000,224000
+Q2,Data & AI,Headcount,640000,652000
+Q2,Data & AI,Professional Services,85000,97000
+Q2,IT Ops,Licenses & Subscriptions,220000,268000
+Q2,IT Ops,Software Infrastructure,185000,251000
+Q2,IT Ops,Cloud Compute,150000,182000
+Q2,IT Ops,Hardware,72000,85000
+Q2,Security,Software Infrastructure,115000,158000
+Q2,Security,Licenses & Subscriptions,95000,121000
+Q2,Security,Headcount,310000,315000
+Q2,Security,Professional Services,65000,88000
+Q2,DevOps,Cloud Compute,210000,272000
+Q2,DevOps,Software Infrastructure,135000,189000
+Q2,DevOps,Licenses & Subscriptions,52000,61000
+Q2,Product,Headcount,430000,438000
+Q2,Product,Software Infrastructure,65000,84000
+Q2,Product,Travel,32000,41000
+Q2,Product,Marketing,95000,92000
+Q2,Finance,Professional Services,125000,121000
+Q2,Finance,Headcount,265000,263000
+Q2,Finance,Licenses & Subscriptions,46000,48000
+Q2,HR,Headcount,185000,183000
+Q2,HR,Training,42000,47000
+Q2,HR,Professional Services,36000,39000
+Q2,Support,Headcount,225000,224000
+Q2,Support,Software Infrastructure,42000,58000
+Q2,Support,Facilities,56000,60000

@@ -108,12 +108,8 @@ def generate_deck(body: GenerateRequest) -> Response:
 
 @app.get("/")
 def serve_home() -> FileResponse:
+    # Single-page app: Home and Demo are tabs within index.html.
     return FileResponse(FRONTEND_DIR / "index.html")
-
-
-@app.get("/demo.html")
-def serve_demo() -> FileResponse:
-    return FileResponse(FRONTEND_DIR / "demo.html")
 
 
 if FRONTEND_DIR.is_dir():
