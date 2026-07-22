@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo — DeckGen AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">▚ DeckGen <span>AI</span></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/demo.html" class="active">Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="demo-page">
+    <div class="chat-wrap">
+      <div class="chat-header">
+        <h1>DeckGen AI Assistant</h1>
+        <p>We can help you generate insights from your finance data</p>
+      </div>
+
+      <div class="chat-messages" id="messages"></div>
+
+      <div class="suggestions" id="suggestions"></div>
+
+      <div class="chat-input-bar">
+        <div class="input-row">
+          <textarea
+            id="prompt-input"
+            rows="1"
+            placeholder="Ask about variances, request insights, or generate a deck…"
+          ></textarea>
+          <button class="btn-send" id="send-btn" aria-label="Send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/demo.js"></script>
+</body>
+</html>
