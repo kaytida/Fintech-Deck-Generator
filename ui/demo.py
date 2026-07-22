@@ -98,6 +98,7 @@ def _reset() -> None:
     st.session_state.demo_review = None
     st.session_state.demo_pptx = None
     st.session_state.demo_filename = None
+    st.session_state.demo_agent_note = None
 
 
 def _animate_pipeline(holder) -> None:
@@ -319,6 +320,10 @@ def render_demo() -> None:
         st.error(st.session_state.demo_error)
         st.session_state.demo_error = None
 
+    # Show WHY the template was used (missing token / agent failure) on every result phase.
+    if st.session_state.demo_agent_note and st.session_state.demo_phase in ("review", "done"):
+        st.warning(st.session_state.demo_agent_note)
+
     # --- Working: animate pipeline, then run the review agent ---
     if st.session_state.demo_phase == "working":
         prompt = st.session_state.pending_prompt or ""
@@ -344,8 +349,6 @@ def render_demo() -> None:
             f'<span class="deck-title-label">{r["quarter"]} · {r["category"]}</span></div>',
             unsafe_allow_html=True,
         )
-        if st.session_state.demo_agent_note:
-            st.warning(st.session_state.demo_agent_note)
         _render_summary(r)
 
         b1, b2, _ = st.columns([1.5, 1, 1.6])
