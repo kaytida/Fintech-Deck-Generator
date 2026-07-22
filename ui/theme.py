@@ -698,10 +698,10 @@ def render_top_nav() -> str:
     if "page" not in st.session_state:
         st.session_state.page = "Home"
 
-    if st.session_state.page not in ("Home", "Demo"):
+    if st.session_state.page not in ("Home", "Dashboard", "Demo"):
         st.session_state.page = "Demo" if "Demo" in st.session_state.page or "Generate" in st.session_state.page else "Home"
 
-    logo_col, home_col, demo_col = st.columns([4, 1, 1])
+    logo_col, home_col, dash_col, demo_col = st.columns([3.4, 1, 1.3, 1])
 
     with logo_col:
         st.markdown(
@@ -714,6 +714,10 @@ def render_top_nav() -> str:
     with home_col:
         if st.button("Home", type="primary" if current == "Home" else "secondary", use_container_width=True):
             st.session_state.page = "Home"
+            st.rerun()
+    with dash_col:
+        if st.button("Dashboard", type="primary" if current == "Dashboard" else "secondary", use_container_width=True):
+            st.session_state.page = "Dashboard"
             st.rerun()
     with demo_col:
         if st.button("Demo", type="primary" if current == "Demo" else "secondary", use_container_width=True):
