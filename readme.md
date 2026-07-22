@@ -20,7 +20,7 @@ open index.html       # macOS
 xdg-open index.html   # Linux
 ```
 
-## Next Steps..
+## Next Steps
 
 - Build out the deck generation logic.
 - Add supporting assets and scripts as needed.
