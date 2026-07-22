@@ -564,7 +564,7 @@ div[data-testid="stButton"] > button[kind="secondary"]:hover {
 }
 
 /* ============================================================
-   Demo page — FastAPI-style console → pipeline → result
+   Demo page — console → pipeline → result
    ============================================================ */
 .demo-head { text-align: center; max-width: 640px; margin: 0 auto 1.75rem; }
 .demo-eyebrow {
