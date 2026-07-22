@@ -3,40 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #63d0f1, #5cf6f6);
-            color: #ffffff;
-        }
-        .card {
-            text-align: center;
-            padding: 2.5rem 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            margin: 0 0 0.5rem;
-            font-size: 2.5rem;
-        }
-        p {
-            margin: 0;
-            opacity: 0.85;
-        }
-    </style>
+    <title>DeckGen AI — From Plain English to Boardroom Decks</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="card">
-        <h1>Hello, World!!!</h1>
-        <p>Welcome to Deck-Gen-AI</p>
-    </div>
+    <!-- ===================== NAV / TABS ===================== -->
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-mark">▚</span>
+            <span class="brand-name">DeckGen<span class="brand-accent"> AI</span></span>
+        </div>
+        <nav class="tabs" role="tablist">
+            <button class="tab is-active" data-tab="home" role="tab">Home</button>
+            <button class="tab" data-tab="demo" role="tab">Demo</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===================== HOME PAGE ===================== -->
+        <section id="page-home" class="page is-active">
+            <div class="hero">
+                <p class="eyebrow">Autonomous Presentation Engine for Finance & GCC Leadership</p>
+                <h1 class="hero-title">
+                    From plain English to a boardroom-ready deck in
+                    <span class="grad">15 seconds</span>.
+                </h1>
+                <p class="hero-sub">
+                    DeckGen AI connects directly to your enterprise database, understands a
+                    plain-English request, computes the numbers, writes the narrative, and
+                    generates a fully editable PowerPoint — instantly.
+                </p>
+                <button class="cta" data-goto="demo">Try the Live Demo →</button>
+            </div>
+
+            <div class="content-grid">
+                <!-- Introduction -->
+                <article class="panel">
+                    <h2 class="panel-title accent-blue">Introduction</h2>
+                    <p>
+                        Global Capability Center (GCC) leadership teams, CFOs, and finance
+                        directors are flooded with rich BI dashboards and AI query chatbots.
+                        Yet when an operational crisis or budget spike hits, the insight is
+                        trapped — locked inside dense dashboards and un-shareable chat replies.
+                    </p>
+                    <p>
+                        <strong>DeckGen AI</strong> is an autonomous presentation engine that
+                        turns a single plain-English request into a downloadable, data-driven
+                        executive deck — closing the gap between enterprise data and the
+                        boardroom.
+                    </p>
+                </article>
+
+                <!-- Problem statement -->
+                <article class="panel">
+                    <h2 class="panel-title accent-amber">Problem Statement</h2>
+                    <p class="lead">
+                        Leadership faces a severe <strong>“Last-Mile Communication Friction.”</strong>
+                    </p>
+                    <ul class="problem-list">
+                        <li>
+                            <span class="dot"></span>
+                            <div>
+                                <strong>Dashboards are too dense</strong> for executive
+                                decision-making during high-stakes leadership reviews.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="dot"></span>
+                            <div>
+                                <strong>Chatbot answers are non-shareable</strong> — trapped in
+                                text boxes that can't be presented to offshore HQ executives.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="dot"></span>
+                            <div>
+                                <strong>Manual slide creation wastes 10–15 hours a month</strong>
+                                — screenshotting charts, copying numbers, and rebuilding decks.
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Our solution -->
+                <article class="panel panel-wide">
+                    <h2 class="panel-title accent-green">Our Solution</h2>
+                    <p>
+                        A user types a request such as
+                        <em>“Generate a 4-slide deck explaining our Q2 software infrastructure
+                        overrun for HQ.”</em> DeckGen AI then autonomously:
+                    </p>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-num">1</span>
+                            <h3>Queries the database</h3>
+                            <p>Pulls budget vs. actuals straight from the enterprise finance data.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">2</span>
+                            <h3>Calculates variances</h3>
+                            <p>Computes budget-vs-actual gaps and quarter-over-quarter trends.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">3</span>
+                            <h3>Synthesizes insight</h3>
+                            <p>Writes executive bullet points and a headline narrative.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">4</span>
+                            <h3>Generates the deck</h3>
+                            <p>Outputs an editable <code>.pptx</code> with data-driven charts.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===================== DEMO PAGE ===================== -->
+        <section id="page-demo" class="page">
+            <div class="demo-placeholder">
+                <h1>Demo</h1>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>DeckGen AI · Hackathon Prototype</span>
+    </footer>
+
+    <script src="js/dataLoader.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
