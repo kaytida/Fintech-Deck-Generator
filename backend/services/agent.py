@@ -144,6 +144,39 @@ FINAL_INSTRUCTION = (
 )
 
 
+def _verified_pack(store: DataStore) -> dict[str, Any]:
+    """Authoritative, code-computed figures the model MUST use verbatim in the deck.
+
+    This guarantees the generated slides match the numbers shown in the on-screen
+    review (and the real data), instead of the model approximating figures it did
+    not query.
+    """
+    quarters = store.quarters()
+    pack: dict[str, Any] = {
+        "quarter_totals": {q: store.quarter_totals(q) for q in quarters},
+        "category_variance_by_quarter": {q: store.aggregate_by_category(q) for q in quarters},
+        "department_detail_by_quarter": {
+            q: [
+                {
+                    "department": r.department,
+                    "category": r.category,
+                    "budget": r.budget,
+                    "actual": r.actual,
+                    "variance": r.variance,
+                    "variance_pct": r.variance_pct,
+                }
+                for r in store.filter(quarter=q)
+            ]
+            for q in quarters
+        },
+    }
+    if len(quarters) >= 2:
+        pack["quarter_over_quarter_by_category"] = [
+            store.quarter_over_quarter(c, quarters[-2], quarters[-1]) for c in store.categories()
+        ]
+    return pack
+
+
 def _serialize_tool_calls(tool_calls) -> list[dict[str, Any]]:
     return [
         {
@@ -202,8 +235,21 @@ def run_agent(prompt: str, store: DataStore, *, max_steps: int = 8) -> dict[str,
                     }
                 )
 
-        # Force a final structured JSON answer (no tools this time).
-        messages.append({"role": "user", "content": FINAL_INSTRUCTION})
+        # Force a final structured JSON answer (no tools this time), grounded in the
+        # authoritative figures so the deck's numbers match the data / the review.
+        pack = _verified_pack(store)
+        messages.append(
+            {
+                "role": "user",
+                "content": (
+                    FINAL_INSTRUCTION
+                    + "\n\nAUTHORITATIVE FIGURES — every $ and % you write MUST be copied "
+                    "exactly from this JSON. Do NOT invent, round differently, or compute any "
+                    "number that is not derivable from these values:\n"
+                    + json.dumps(pack, default=float)
+                ),
+            }
+        )
         final = client.chat.completions.create(
             model=MODEL,
             messages=messages,
